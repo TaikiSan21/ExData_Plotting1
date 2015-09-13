@@ -1,5 +1,5 @@
 ## Read the data in from the file, setting directory to file loc first
-setwd("~/Coursera R")
+setwd("~/Coursera/DS Repo/ExData_Plotting1")
 file <- "household_power_consumption.txt"
 data <- read.table(file, sep=";", stringsAsFactors=FALSE, header=TRUE, na.strings="?")
 
@@ -14,7 +14,9 @@ data["DateTime"]<- paste( data$Date, data$Time)
 data$DateTime <- as.POSIXct(strptime( data[,"DateTime"], format = dFormat ))
 
 ## Used for saving file
-png("~/Coursera/DS Repo/ExData_Plotting1/plot2.png", width=504, height=504)
+## png("plot2.png", width=504, height=504)
 
-plot(data$DateTime, data$Global_active_power, type="l",xlab="", ylab="Global Active Power (kilowatts)")
-dev.off()
+par(bg="slategray2")
+plot(data$DateTime, data$Global_active_power, type="l",xlab="", ylab="Global Active Power (kilowatts)",col="royalblue")
+
+## dev.off()

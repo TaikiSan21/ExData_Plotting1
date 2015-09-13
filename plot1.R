@@ -1,5 +1,5 @@
 ## Read the data in from the file, setting directory to file loc first
-setwd("~/Coursera R")
+setwd("~/Coursera/DS Repo/ExData_Plotting1")
 file <- "household_power_consumption.txt"
 data <- read.table(file, sep=";", stringsAsFactors=FALSE, header=TRUE, na.strings="?")
 
@@ -15,8 +15,9 @@ tFormat <- "%H:%M:%S"
 data$Time <- strptime( data[,"Time"], format=tFormat)
 
 ## Used for saving file
-png("~/Coursera/DS Repo/ExData_Plotting1/plot1.png", width=504, height=504)
+## png("plot1.png", width=504, height=504)
 
-hist(data$Global_active_power, col='seagreen', xlab="Global Active Power (kilowatts)", main="Global Active Power")
+par(bg="gray73")
+hist(data$Global_active_power, col='lawngreen', xlab="Global Active Power (kilowatts)", main="Global Active Power")
 
-dev.off()
+## dev.off()
